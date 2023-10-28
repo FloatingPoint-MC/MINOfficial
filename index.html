@@ -133,13 +133,13 @@
         fetch(dynamicLink)
             .then(response => response.text())
             .then(link => {
-                dynamicLinkElement = link;
+                dynamicLinkElement.herf = link;
             });
         fetch(numberLink)
             .then(response => response.text())
             .then(number => {
-                communityNumber += `: ${number}`;
-        });
+                communityNumber = `: ${number}`;
+            });
         languageSelector.addEventListener('change', function () {
             const selectedLanguage = languageSelector.value;
             const translation = translations[selectedLanguage];
