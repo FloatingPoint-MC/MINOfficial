@@ -144,7 +144,7 @@
                     communityNumberElement.textContent += communityNumber;
                 }
             });
-        languageSelector.addEventListener('change', function () {
+        function updateContent() = {
             const selectedLanguage = languageSelector.value;
             const translation = translations[selectedLanguage];
 
@@ -155,10 +155,9 @@
             communityNumberElement.textContent = translation.communityNumber + communityNumber;
             dynamicLinkElement.textContent = translation.communityLinkText;
             copyrightElement.innerHTML = translation.copyrightText;
-
-            // Update the dynamic link based on another page
-            
-        });
+      };
+      updateContent();
+      languageSelector.addEventListener('change', updateContent());
     </script> 
  </body>
 </html>
