@@ -157,7 +157,7 @@
             copyrightElement.innerHTML = translation.copyrightText;
       };
       updateContent();
-      languageSelector.addEventListener('change', updateContent());
+      languageSelector.addEventListener('change', function () {updateContent()});
     </script> 
  </body>
 </html>
