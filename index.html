@@ -129,15 +129,16 @@
                 communityLinkText: '访问我们的社区',
                 copyrightText: '&copy; 2023 FloatingPoint-MC',            },
         };
+        var communityNumber = "";
         fetch(dynamicLink)
             .then(response => response.text())
             .then(link => {
-                dynamicLinkElement.href = link;
+                dynamicLinkElement = link;
             });
         fetch(numberLink)
             .then(response => response.text())
             .then(number => {
-                communityNumberElement.textContent += `: ${number}`;
+                communityNumber += `: ${number}`;
         });
         languageSelector.addEventListener('change', function () {
             const selectedLanguage = languageSelector.value;
@@ -147,22 +148,13 @@
             pageTitle.textContent = translation.pageTitle;
             aboutTitle.textContent = translation.aboutTitle;
             aboutText.textContent = translation.aboutText;
-            communityNumberElement.textContent = translation.communityNumber;
+            communityNumberElement.textContent = translation.communityNumber + communityNumber;
             dynamicLinkElement.textContent = translation.communityLinkText;
             copyrightElement.innerHTML = translation.copyrightText;
 
             // Update the dynamic link based on another page
-            fetch(dynamicLink)
-                .then(response => response.text())
-                .then(link => {
-                    dynamicLinkElement.href = link;
-                });
-            fetch(numberLink)
-                .then(response => response.text())
-                .then(number => {
-                    communityNumberElement.textContent += `: ${number}`;
-                });
-            });
+            
+        });
     </script> 
  </body>
 </html><!doctype html>
